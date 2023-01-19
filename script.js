@@ -12,7 +12,7 @@ let clearButton = document.getElementById("clear-button");
 let eraser = document.getElementById("eraser");
 let gridSizeSelector = document.getElementById("grid-slider");
 let drawButton = document.getElementById("draw-button");
-
+let fillButton = document.getElementById("fill-bucket");
 
 function createDivs(num){
     for(let i = 0; i < (num ** 2); i++){
@@ -43,6 +43,7 @@ function createEventListeners(){
     let eraser = document.getElementById("eraser");
     let gridSizeSelector = document.getElementById("grid-slider");
     let drawButton = document.getElementById("draw-button");
+    let fillButton = document.getElementById("fill-bucket");
     document.body.onmousedown = () => mouseDown = true;
     document.body.onmouseup = () => mouseDown = false;
 
@@ -76,6 +77,8 @@ function createEventListeners(){
 
     gridSizeSelector.addEventListener("input", changeGridSize)
     gridSizeSelector.addEventListener("input", displayGridSize)
+
+    fillButton.addEventListener("click", fill);
     }
 
 
@@ -83,6 +86,23 @@ function draw(event){
     if((event.type === "mouseover" && mouseDown) || event.type === "click"){
     event.target.style.backgroundColor = currentColor;
     }
+}
+
+function fill(){
+    let block = Array.from(document.getElementsByClassName("block"));
+    let colorSelectorValue = document.getElementById("color-selector").value;
+    currentColor = colorSelectorValue;
+    block.forEach((block) => {
+        if(block.style.backgroundColor === "" || block.style.backgroundColor === "rgb(255, 255, 255)"){
+            block.style.backgroundColor = currentColor;
+        }
+    })
+    let activeDivs = Array.from(document.getElementsByClassName("active"));
+    if(activeDivs.length > 0){
+        activeDivs.forEach((activeDivs) => {
+            activeDivs.classList.remove("active");})   
+    }
+    fillButton.classList.add("active");
 }
 
 function clearSketch(){
