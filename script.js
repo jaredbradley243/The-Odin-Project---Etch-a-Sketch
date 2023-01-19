@@ -3,14 +3,8 @@ let numOfDivs = 16;
 let container = document.getElementsByClassName("container")[0];
 let mouseDown = false;
 let border = document.getElementsByClassName("border")[0];
-let borderColor = "#000000";
 let currentColor = '#000000';
-let block = Array.from(document.getElementsByClassName("block"));
-let colorSelector = document.getElementById("color-selector");
-let borderSelector = document.getElementById("border-color");
-let clearButton = document.getElementById("clear-button");
 let eraser = document.getElementById("eraser");
-let gridSizeSelector = document.getElementById("grid-slider");
 let drawButton = document.getElementById("draw-button");
 let fillButton = document.getElementById("fill-bucket");
 
@@ -61,12 +55,8 @@ function createEventListeners(){
     drawButton.addEventListener("click", () => {
         let colorSelectorValue = document.getElementById("color-selector").value;
         currentColor = colorSelectorValue;
-        let activeDivs = Array.from(document.getElementsByClassName("active"));
-        if(activeDivs.length > 0){
-            activeDivs.forEach((activeDivs) => {
-                activeDivs.classList.remove("active");})   
-    }
-    drawButton.classList.add("active");
+        removeAllActive();
+        setActive(drawButton);
     })
     
     clearButton.addEventListener("click", clearSketch);
@@ -88,12 +78,8 @@ function draw(event){
 
 function selectColor(event){
     currentColor = event.target.value;
-    let activeDivs = Array.from(document.getElementsByClassName("active"));
-        if(activeDivs.length > 0){
-            activeDivs.forEach((activeDivs) => {
-                activeDivs.classList.remove("active");})
-        }
-        drawButton.classList.add("active");
+    removeAllActive();
+    setActive(drawButton);
 }
 
 function fill(){
@@ -105,22 +91,14 @@ function fill(){
             block.style.backgroundColor = currentColor;
         }
     })
-    let activeDivs = Array.from(document.getElementsByClassName("active"));
-    if(activeDivs.length > 0){
-        activeDivs.forEach((activeDivs) => {
-            activeDivs.classList.remove("active");})   
-    }
-    fillButton.classList.add("active");
+    removeAllActive();
+    setActive(drawButton);
 }
 
 function erase(){
     currentColor = "#FFFFFF";
-    let activeDivs = Array.from(document.getElementsByClassName("active"));
-    if(activeDivs.length > 0){
-        activeDivs.forEach((activeDivs) => {
-            activeDivs.classList.remove("active");})   
-    }
-    eraser.classList.add("active");
+    removeAllActive();
+    setActive(eraser);
 }
 
 function clearSketch(){
@@ -150,6 +128,18 @@ function changeGridSize(event){
 function displayGridSize(event){
     let gridSizeDiv = document.getElementById("range-text");
     gridSizeDiv.innerText = `${event.target.value} x ${event.target.value}`;
+}
+
+function removeAllActive(){
+    let activeDivs = Array.from(document.getElementsByClassName("active"));
+    if(activeDivs.length > 0){
+        activeDivs.forEach((activeDivs) => {
+            activeDivs.classList.remove("active");})   
+    }
+}
+
+function setActive(button){
+    button.classList.add("active");
 }
 
 
