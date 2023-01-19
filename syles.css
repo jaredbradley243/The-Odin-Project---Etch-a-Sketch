@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&family=Noto+Emoji&display=swap');
+
 
 :root{
     --container-size: 500px
@@ -100,4 +102,29 @@ h1{
     background-color: black;
     color: white;
     border: solid white;
+}
+
+.footer{
+    height: 85px;
+    background-color: black;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    min-width: 100%;
+}
+
+.footer .container{
+    min-height: 100%;
+    min-width: 100%
+}
+
+.footer a{
+    color: #FFFFFF;
+    padding-right: 3px;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+.nerd{
+    font-family: 'Noto Color Emoji', sans-serif;
 }
