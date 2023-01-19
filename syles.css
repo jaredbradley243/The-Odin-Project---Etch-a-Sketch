@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+:root{
+    --container-size: 500px
+}
+
+*{
+    font-family: 'Montserrat', sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+h1{
+    text-align: center;
+    font-size: 75px;
+    padding: 30px 0px;
+}
+
+.main{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    /* height: 100vh; */
+    gap: 100px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.controls{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    width: 200px;
+}
+
+.controls #border-color{
+    width: 100%;
+    padding: 10px 20px;
+}
+
+.controls #color-selector{
+    width: 100px;
+    height: 100px;
+    border: none;
+    background-color: transparent;
+}
+
+.controls .grid-slider{
+    width: 100%;
+}
+
+.controls p{
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.border{
+    display: flex;
+    width: var(--container-size);
+    align-items: center;
+    justify-content: center;
+    border: solid;
+    border-color: black;
+    height: var(--container-size);
+    box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
+}
+
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    width: var(--container-size);
+}
+
+.block{
+    width: 31.25px;
+    height: 31.25px;
+    user-select: none;
+}
+
+.btn, .input{
+    cursor: pointer;
+}
+
+.grid-slider{
+    margin-top: -25px;
+}
+
+.btn{
+    padding: 10px 20px;
+    border-radius: 10px;
+    width: 100%;
+}
+
+.active{
+    background-color: black;
+    color: white;
+    border: solid white;
+}
