@@ -59,6 +59,26 @@ h1{
     font-weight: bold;
 }
 
+.controls  .btn, .input{
+    cursor: pointer;
+}
+
+.controls .grid-slider{
+    margin-top: -25px;
+}
+
+.controls .btn{
+    padding: 10px 20px;
+    border-radius: 10px;
+    width: 100%;
+}
+
+.active{
+    background-color: black;
+    color: white;
+    border: solid white;
+}
+
 .border{
     display: flex;
     width: var(--container-size);
@@ -82,26 +102,6 @@ h1{
     width: 31.25px;
     height: 31.25px;
     user-select: none;
-}
-
-.btn, .input{
-    cursor: pointer;
-}
-
-.grid-slider{
-    margin-top: -25px;
-}
-
-.btn{
-    padding: 10px 20px;
-    border-radius: 10px;
-    width: 100%;
-}
-
-.active{
-    background-color: black;
-    color: white;
-    border: solid white;
 }
 
 .footer{

@@ -22,8 +22,6 @@ function createDivs(num){
     }
 }
 
-createDivs(numOfDivs);
-
 function changeWidth(num){
     let block = Array.from(document.getElementsByClassName("block"));
     let containerWidth = container.offsetWidth;
@@ -88,6 +86,16 @@ function draw(event){
     }
 }
 
+function selectColor(event){
+    currentColor = event.target.value;
+    let activeDivs = Array.from(document.getElementsByClassName("active"));
+        if(activeDivs.length > 0){
+            activeDivs.forEach((activeDivs) => {
+                activeDivs.classList.remove("active");})
+        }
+        drawButton.classList.add("active");
+}
+
 function fill(){
     let block = Array.from(document.getElementsByClassName("block"));
     let colorSelectorValue = document.getElementById("color-selector").value;
@@ -105,13 +113,6 @@ function fill(){
     fillButton.classList.add("active");
 }
 
-function clearSketch(){
-    let block = Array.from(document.getElementsByClassName("block"));
-    block.forEach((block) => {
-        block.style.backgroundColor = "#FFFFFF";
-    })
-}
-
 function erase(){
     currentColor = "#FFFFFF";
     let activeDivs = Array.from(document.getElementsByClassName("active"));
@@ -122,18 +123,21 @@ function erase(){
     eraser.classList.add("active");
 }
 
+function clearSketch(){
+    let block = Array.from(document.getElementsByClassName("block"));
+    block.forEach((block) => {
+        block.style.backgroundColor = "#FFFFFF";
+    })
+}
+
 function changeBorderColor(event){
     border.style.borderColor = event.target.value;
 }
 
-function selectColor(event){
-    currentColor = event.target.value;
-    let activeDivs = Array.from(document.getElementsByClassName("active"));
-        if(activeDivs.length > 0){
-            activeDivs.forEach((activeDivs) => {
-                activeDivs.classList.remove("active");})
-        }
-        drawButton.classList.add("active");
+function deleteGrid(){
+    let block = Array.from(document.getElementsByClassName("block"));
+    block.forEach((block) => {
+        block.remove()})
 }
 
 function changeGridSize(event){
@@ -148,14 +152,10 @@ function displayGridSize(event){
     gridSizeDiv.innerText = `${event.target.value} x ${event.target.value}`;
 }
 
-function deleteGrid(){
-    let block = Array.from(document.getElementsByClassName("block"));
-    block.forEach((block) => {
-        block.remove()})
-}
 
-
-createEventListeners();
+createDivs(numOfDivs);
 changeWidth(numOfDivs);
+createEventListeners();
+
 
 
