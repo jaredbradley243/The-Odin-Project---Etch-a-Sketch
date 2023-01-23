@@ -40,7 +40,7 @@ I created a drawing app for the web with a modern GUI using vanilla JavaScript, 
 3. Continued to improve my JavaScript DOM manipulation skills after being introduced to the topic with the [JavaScript Drum Kit](https://github.com/jaredbradley243/JavaScript30-Vanilla-JS-Drum-Kit) and further exploring the topic with [Rock, Paper, Scissors](https://github.com/jaredbradley243/The-Odin-Project---Rock-Paper-Scissors)
 
 ### Customizations
-* I added multiple features beyond what was required in the exercise to gain additional practice and to challenge myself, including:
+* To challenge myself I added multiple features beyond what was required in the exercise, including:
   * Fill Tool
   * Eraser Mode
   * Click-and-Drag functionality
