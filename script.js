@@ -40,7 +40,7 @@ function createEventListeners(){
     document.body.onmouseup = () => mouseDown = false;
 
     block.forEach((block) => {
-        block.addEventListener("mouseover", draw);})
+        block.addEventListener("mousemove", draw);})
     
     block.forEach((block) => {
         block.addEventListener("mousedown", draw);})
@@ -71,7 +71,7 @@ function createEventListeners(){
 
 
 function draw(event){
-    if((event.type === "mouseover" && mouseDown) || event.type === "click"){
+    if((event.type === "mousemove" && mouseDown) || event.type === "click"){
     event.target.style.backgroundColor = currentColor;
     }
 }
